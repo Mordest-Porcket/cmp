@@ -1,8 +1,10 @@
 {
   "cSpell.words": [
     "arrayish",
+    "autoincrement",
     "chownr",
     "citty",
+    "colour",
     "confbox",
     "cuid",
     "defu",
@@ -21,12 +23,14 @@
     "minizlib",
     "msvc",
     "napi",
+    "ntsa",
     "nypm",
     "ohash",
     "readdirp",
     "tinyexec",
     "turbopack",
     "tybys",
+    "ulez",
     "vercel",
     "yallist"
   ]
