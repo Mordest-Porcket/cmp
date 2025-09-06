@@ -1,3 +1,33 @@
 {
-  "cSpell.words": ["turbopack"]
+  "cSpell.words": [
+    "arrayish",
+    "chownr",
+    "citty",
+    "confbox",
+    "cuid",
+    "defu",
+    "destr",
+    "emnapi",
+    "exsolve",
+    "giget",
+    "gnueabihf",
+    "jridgewell",
+    "libc",
+    "libvips",
+    "lightningcss",
+    "linuxmusl",
+    "magicast",
+    "minipass",
+    "minizlib",
+    "msvc",
+    "napi",
+    "nypm",
+    "ohash",
+    "readdirp",
+    "tinyexec",
+    "turbopack",
+    "tybys",
+    "vercel",
+    "yallist"
+  ]
 }
