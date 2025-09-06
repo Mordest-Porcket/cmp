@@ -4,7 +4,7 @@ model Session {
   userId       String   @map("user_id")
   expires      DateTime
   requires2FA  Boolean  @default(true)
-  user         User     @relation(fields: [userId], references: [id])
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("sessions")
 }

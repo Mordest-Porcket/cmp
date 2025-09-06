@@ -1,0 +1,124 @@
+model Classified {
+  id             Int              @id @default(autoincrement())
+  views          Int              @default(0)
+  slug           String           @unique
+  vrm            String?
+  title          String?
+  description    String?
+  year           Int
+  odoReading     Int              @default(0) @map("odo_reading")
+  doors          Int              @default(2)
+  seats          Int              @default(5)
+  price          Int              @default(0) @map("price")
+  makeId         Int              @map("make_id")
+  make           Make             @relation(fields: [makeId], references: [id])
+  modelId        Int              @map("model_id")
+  model          Model            @relation(fields: [modelId], references: [id])
+  modelVariantId Int              @map("model_variant_id")
+  modelVariant   ModelVariant     @relation(fields: [modelVariantId], references: [id])
+  ulezCompliance ULEZCompliance   @default(EXEMPT)
+  ntsaCompliance NTSACompliance   @default(EXEMPT)
+  transmission   Transmission     @default(MANUAL)
+  colour         Colour           @default(BLACK)
+  fuelType       FuelType         @default(PETROL)
+  bodyType       BodyType         @default(SEDAN)
+  odoUnit        OdoUnit          @default(KILOMETERS)
+  currency       CurrencyCode     @default(KES)
+  status         ClassifiedStatus @default(DRAFT)
+  images         Image[]
+  customers      Customer[]
+  createdAt      DateTime         @default(now()) @map("created_at")
+  updatedAt      DateTime         @updatedAt @map("updated_at")
+
+  @@index([makeId, modelId], name: "index_make_model")
+  @@index([status], name: "index_status")
+  @@index([price], name: "index_price")
+  @@map("classifieds")
+}
+
+enum ClassifiedStatus {
+  LIVE
+  SOLD
+  DRAFT
+  ACTIVE
+  INACTIVE
+  PENDING
+  EXPIRED
+  DELETED
+  ARCHIVED
+  REJECTED
+  UNDER_REVIEW
+  FEATURED
+  PROMOTED
+  HIDDEN
+}
+
+enum CurrencyCode {
+  KES
+  USD
+  GBP
+  EUROS
+  YEN
+}
+
+enum OdoUnit {
+  KILOMETERS
+  MILES
+}
+
+enum BodyType {
+  SEDAN
+  HATCHBACK
+  SUV
+  COUPE
+  CONVERTIBLE
+  WAGON
+  PICKUP
+  VAN
+  MINIVAN
+  TRUCK
+  BUS
+  JEEP
+  ROADSTER
+}
+
+enum FuelType {
+  PETROL
+  DIESEL
+  ELECTRIC
+  HYBRID
+}
+
+enum Colour {
+  BLACK
+  BLUE
+  BROWN
+  GOLD
+  GREEN
+  GREY
+  ORANGE
+  PINK
+  PURPLE
+  RED
+  SILVER
+  WHITE
+  YELLOW
+}
+
+enum ULEZCompliance {
+  EXEMPT
+  NON_EXEMPT
+}
+
+enum NTSACompliance {
+  EXEMPT
+  NON_EXEMPT
+}
+
+enum Transmission {
+  MANUAL
+  AUTOMATIC
+  SEMI_AUTOMATIC
+  CVT
+  DUAL_CLUTCH
+}
